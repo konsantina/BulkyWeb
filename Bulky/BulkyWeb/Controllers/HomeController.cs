@@ -1,8 +1,10 @@
-using System.Diagnostics;
-using BulkyWeb.Models;
+﻿using System.Diagnostics;
+using Bulky.Models;
 using Microsoft.AspNetCore.Mvc;
+using Bulky.DataAccess.Data; // Για το ApplicationDbContext
 
-namespace BulkyWeb.Controllers
+
+namespace Bulky.Controllers
 {
     public class HomeController : Controller
     {
