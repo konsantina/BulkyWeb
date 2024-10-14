@@ -1,4 +1,5 @@
-﻿using BulkyBook.DataAccess.IRepository;
+﻿using BulkyBook.DataAccess.Data;
+using BulkyBook.DataAccess.IRepository;
 using BulkyBook.DataAccess.Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace BulkyBook.DataAccess.Repository
         private ApplicationDbContext _db;
         public ICategoryRepository Category { get; private set; }
         public IProductRepository Product { get; private set; }
-        public UnitOfWork(ApplicationDbContext db) 
+        public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             Category = new CategoryRepository(_db);
@@ -22,7 +23,18 @@ namespace BulkyBook.DataAccess.Repository
         }
         public void Save()
         {
-            _db.SaveChanges();
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                // Πιάσε την εξαίρεση και δες τι σφάλμα υπάρχει
+                Console.WriteLine(ex.Message);
+                throw;
+            }
         }
+
+
     }
 }
