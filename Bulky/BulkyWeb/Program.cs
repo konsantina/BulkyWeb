@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
+using BulkyBook.Models.ViewModels;
 
 
 
@@ -31,6 +32,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddTransient<ShoppingCartVM>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
