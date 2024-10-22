@@ -52,7 +52,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             {
                 //shiping cart exist
                 cartFromDb.Count += shoppingCart.Count;
-                _unitOfWork.ShoppingCart.Update(cartFromDb);
+               _unitOfWork.ShoppingCart.Update(cartFromDb);
             }
             else {
                 //add cart record
