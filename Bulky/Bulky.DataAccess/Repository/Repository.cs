@@ -53,10 +53,10 @@ namespace BulkyBook.DataAccess.Repository
             }
             return query.FirstOrDefault();
         }
-        
-       
-         //Category, CoverType
-         public  IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter,string? includeProperties = null)
+
+
+        //Category, CoverType
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
             if (filter != null)
@@ -71,6 +71,7 @@ namespace BulkyBook.DataAccess.Repository
                     query = query.Include(includeProp);
                 }
             }
+
             return query.ToList();
         }
 
